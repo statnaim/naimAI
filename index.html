@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Naim AI - Your personal AI assistant">
+  <title>Naim AI — Personal Assistant</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-icon">N</div>
+      <div class="brand-copy"><h2>Naim AI</h2><small>Personal Assistant</small></div>
+      <button class="icon-btn close-sidebar" id="closeSidebar" aria-label="Close menu">×</button>
+    </div>
+
+    <button class="new-chat" id="newChat"><span>＋</span> New chat</button>
+    <div class="section-label">YOUR CONVERSATIONS</div>
+    <div class="chat-list" id="chatList"></div>
+
+    <div class="sidebar-bottom">
+      <button class="memory-btn" id="memoryBtn">♧ <span>Personal memory</span></button>
+      <div class="profile">
+        <div class="avatar">N</div>
+        <div><strong>Naim</strong><small>Personal workspace</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="top-title"><strong>Naim AI</strong><span><i></i> Ready to help</span></div>
+      <button class="icon-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </header>
+
+    <section class="chat-area" id="chatArea">
+      <div class="welcome" id="welcome">
+        <div class="welcome-logo">N</div>
+        <h1>How can I help you today?</h1>
+        <p>Ask anything. Learn, create, solve, and explore.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="Explain Statistics in simple Bengali, with an example."><span>📊</span><strong>Learn Statistics</strong><small>Understand concepts step by step</small></button>
+          <button class="suggestion" data-prompt="Help me write a beginner-friendly Python program."><span>💻</span><strong>Write code</strong><small>Learn programming with examples</small></button>
+          <button class="suggestion" data-prompt="Help me make a realistic weekly study plan."><span>📚</span><strong>Plan my study</strong><small>Organize learning and tasks</small></button>
+          <button class="suggestion" data-prompt="Explain an interesting idea in artificial intelligence."><span>🧠</span><strong>Explore AI</strong><small>Discover something new</small></button>
+        </div>
+      </div>
+      <div class="messages" id="messages" aria-live="polite"></div>
+    </section>
+
+    <div class="composer-wrapper">
+      <form class="composer" id="chatForm">
+        <textarea id="messageInput" placeholder="Message Naim AI..." rows="1" maxlength="12000" required aria-label="Your message"></textarea>
+        <div class="composer-bottom">
+          <span>✦ Naim AI</span>
+          <button type="submit" id="sendBtn" aria-label="Send message">↑</button>
+        </div>
+      </form>
+      <p class="disclaimer">AI can make mistakes. Verify important information.</p>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="memoryModal" role="dialog" aria-modal="true" aria-labelledby="memoryTitle">
+  <div class="modal">
+    <div class="modal-header"><h2 id="memoryTitle">♧ Personal memory</h2><button class="icon-btn" id="closeMemory" aria-label="Close">×</button></div>
+    <p class="modal-description">Save details you want Naim AI to use when they are relevant to your questions.</p>
+    <form id="memoryForm">
+      <textarea id="memoryInput" placeholder="Example: I study Statistics at Khulna University." maxlength="1000" required></textarea>
+      <button class="save-memory" type="submit">Save memory</button>
+    </form>
+    <div class="saved-memories" id="savedMemories"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/script.js" defer></script>
+</body>
+</html>
